@@ -163,6 +163,69 @@
       min-width: 220px;
       justify-content: flex-end;
     }
+
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 100;
+    }
+    .mobile-menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(8, 4, 22, 0.98);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      z-index: 99;
+      padding-top: 80px;
+      overflow-y: auto;
+    }
+    .mobile-menu.active {
+      display: block;
+    }
+    .mobile-menu nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 20px;
+    }
+    .mobile-menu nav a {
+      font-size: 18px;
+      color: var(--text-primary);
+      padding: 16px 20px;
+      border-radius: 12px;
+      text-align: left;
+      transition: background 0.2s ease;
+    }
+    .mobile-menu nav a:hover {
+      background: rgba(255,255,255,0.08);
+    }
     .download-button-header {
       height: 40px;
       width: auto;
@@ -804,6 +867,8 @@
     @media (max-width: 680px) {
       .pricing-card { grid-column: span 12 !important; }
       .navlinks { display: none; }
+      .nav-cta { display: none; }
+      .mobile-menu-toggle { display: flex; }
       .hero { padding: 56px 0 38px; }
       section { padding: 64px 0; }
       .feature { grid-column: span 12; }
@@ -850,6 +915,12 @@
               <img src="downloadbutton.png" alt="Download" class="download-button-header" />
             </a>
           </div>
+
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </div>
@@ -897,21 +968,7 @@
           </div>
         </div>
 
-        <div class="store-row">
-          <!-- Keep your App Store button image and link -->
-          <a href="#" class="app-store-button" id="app-store-link" aria-label="Download on the App Store">
-            <img src="app-store-button.png" alt="Download on the App Store" id="app-store-image" />
-          </a>
-
-          <!-- Optional: if you later add another button (TestFlight, etc.), keep same styling -->
-          <!--
-          <a href="#" class="app-store-button" id="testflight-link" aria-label="Join TestFlight">
-            <img src="testflight-button.png" alt="Join TestFlight" />
-          </a>
-          -->
-        </div>
-
-        <div class="fineprint">
+        <div class="fineprint" style="margin-top: 24px;">
           The experience is personalized from your onboarding profile.
         </div>
       </div>
@@ -1328,9 +1385,52 @@
     </footer>
   </div>
 
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#previews">Previews</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#faq">FAQ</a>
+      <a href="#download">Download</a>
+    </nav>
+  </div>
+
   <script>
     // Update App Store link when you have it:
     // document.getElementById('app-store-link').href = 'YOUR_APP_STORE_LINK';
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenu) {
+      mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      });
+
+      // Close menu when clicking on a link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Close menu when clicking outside
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
