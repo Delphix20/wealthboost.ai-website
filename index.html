@@ -20,6 +20,12 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
     :root {
       --dark-bg: #12082e;
       --dark-bg-bottom: #050017;
@@ -60,6 +66,8 @@
       color: var(--text-primary);
       min-height: 100vh;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
       font-weight: 400;
@@ -93,6 +101,9 @@
     .content {
       position: relative;
       z-index: 1;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     /* Top Nav (Apple-ish) */
@@ -389,6 +400,9 @@
     /* Section base */
     section {
       padding: 80px 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
     .section-header {
       text-align: center;
