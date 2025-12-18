@@ -621,12 +621,17 @@
       background: rgba(0,0,0,0.25);
       border: 1px solid rgba(255,255,255,0.10);
       aspect-ratio: 9 / 16;
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+    }
+    .preview .frame:not(img) {
       display: grid;
       place-items: center;
       color: rgba(255,255,255,0.85);
       font-weight: 700;
       letter-spacing: -0.4px;
-      position: relative;
     }
     .preview .frame::after {
       content: "";
@@ -1162,27 +1167,22 @@
 
         <div class="preview-grid">
           <div class="preview">
-            <!-- Replace placeholder with your screenshot image -->
-            <!-- <img class="frame" src="preview-home.jpg" alt="Home view preview" /> -->
-            <div class="frame">Home Dashboard</div>
+            <img class="frame" src="preview-home.png" alt="Home view preview" />
             <p><strong>Home</strong> shows your rings, money thought, and quick actions.</p>
           </div>
 
           <div class="preview">
-            <!-- <img class="frame" src="preview-missions.jpg" alt="Daily missions preview" /> -->
-            <div class="frame">Daily Missions</div>
+            <img class="frame" src="preview-missions.png" alt="Daily missions preview" />
             <p><strong>Missions</strong> are short, profile-based, and XP-balanced.</p>
           </div>
 
           <div class="preview">
-            <!-- <img class="frame" src="preview-coach.jpg" alt="AI coach preview" /> -->
-            <div class="frame">AI Coach</div>
+            <img class="frame" src="preview-coach.png" alt="AI coach preview" />
             <p><strong>Coach</strong> gives practical steps and keeps the topic on money.</p>
           </div>
 
           <div class="preview">
-            <!-- <img class="frame" src="preview-progress.jpg" alt="Progress page preview" /> -->
-            <div class="frame">Progress Page</div>
+            <img class="frame" src="preview-progress.png" alt="Progress page preview" />
             <p><strong>Progress</strong> adds daily + weekly interactive tasks for momentum.</p>
           </div>
         </div>
