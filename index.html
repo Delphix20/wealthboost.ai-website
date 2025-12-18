@@ -804,9 +804,21 @@
       -webkit-backdrop-filter: var(--glass);
       display: flex;
       flex-direction: column;
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      position: relative;
+    }
+    .pricing-card:hover:not(.selected) {
+      border: 2px solid var(--primary-purple);
+      transform: translateY(-2px);
+    }
+    .pricing-card.selected {
+      border: 2px solid var(--primary-purple);
+    }
+    .pricing-card.selected:hover {
+      transform: translateY(-2px);
     }
     .pricing-card.recommended {
-      border: 2px solid var(--primary-purple);
       position: relative;
     }
     .pricing-badge {
@@ -1455,6 +1467,21 @@
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+      });
+    });
+
+    // Pricing card selection
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    pricingCards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Don't trigger if clicking on the button inside
+        if (e.target.closest('a')) {
+          return;
+        }
+        // Remove selected class from all cards
+        pricingCards.forEach(c => c.classList.remove('selected'));
+        // Add selected class to clicked card
+        this.classList.add('selected');
       });
     });
   </script>
