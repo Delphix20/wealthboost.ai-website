@@ -115,7 +115,8 @@
     .glow.purple { background: radial-gradient(circle, var(--primary-purple) 0%, transparent 60%); }
     .glow.green  { background: radial-gradient(circle, var(--secondary-emerald) 0%, transparent 60%); }
     .glow.one { top: -240px; right: -260px; }
-    .glow.two { bottom: -260px; left: -260px; opacity: 0.22; }
+    /* FIX: reduce bottom glow so it doesn't "paint" below footer */
+    .glow.two { bottom: -120px; left: -260px; opacity: 0.22; }
 
     .content {
       position: relative;
@@ -125,9 +126,10 @@
 
       /* FIX: hard clamp any accidental overflow from children */
       overflow-x: hidden; /* fallback */
+      overflow-y: hidden; /* fallback */
     }
     @supports (overflow: clip) {
-      .content { overflow-x: clip; }
+      .content { overflow-x: clip; overflow-y: clip; }
     }
 
     /* Top Nav (Apple-ish) */
