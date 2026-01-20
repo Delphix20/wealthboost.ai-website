@@ -357,32 +357,49 @@
     /* Highlight */
     .highlight-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
       margin-top: 38px;
+      align-items: center;
     }
-    .highlight {
+    .highlight-image {
+      width: 100%;
       border-radius: var(--corner-radius-xl);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: var(--glass);
-      -webkit-backdrop-filter: var(--glass);
       overflow: hidden;
       box-shadow: var(--shadow-card);
-      position: relative;
     }
-    .highlight .inner { padding: 34px; }
-    .highlight h3 {
+    .highlight-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--corner-radius-xl);
+    }
+    .highlight-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .highlight-symbol {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 8px;
+    }
+    .highlight-symbol img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .highlight-content h3 {
       font-size: 22px;
       font-weight: 600;
       letter-spacing: -0.5px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      line-height: 1.2;
     }
-    .highlight p {
+    .highlight-content p {
       color: var(--text-secondary);
       line-height: 1.65;
       font-size: 15.5px;
-      max-width: 720px;
     }
     .highlight .mini { display: grid; grid-template-columns: 1fr; gap: 14px; }
     .mini-card {
@@ -720,7 +737,16 @@
 
     /* Responsive */
     @media (max-width: 980px) {
-      .highlight-grid { grid-template-columns: 1fr; }
+      .highlight-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .highlight-content {
+        text-align: center;
+      }
+      .highlight-symbol {
+        margin: 0 auto 8px;
+      }
       .feature { grid-column: span 6; }
       .step { grid-column: span 12; }
       .preview { grid-column: span 6; }
@@ -838,57 +864,43 @@
           </div>
 
           <div class="highlight-grid">
-            <div class="highlight">
-              <div class="inner">
-                <h3>Daily missions that match your life.</h3>
-                <p>
-                  Get five missions per day across spending, income, learning, mindset, and a wildcard.
-                  They’re kept short (1–3 lines), profile-based, and balanced so you can actually finish them.
-                </p>
-
-                <div class="badge-row" aria-label="Highlights">
-                  <div class="badge"><strong>5</strong> daily missions</div>
-                  <div class="badge"><strong>XP</strong> scales with difficulty</div>
-                  <div class="badge"><strong>AI</strong> tailored to your profile</div>
-                </div>
-
-                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);">
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                      <span style="color: var(--secondary-emerald); font-weight: 600;">●</span>
-                      <span>Income</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                      <span style="color: var(--secondary-emerald); font-weight: 600;">●</span>
-                      <span>Spending</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                      <span style="color: var(--secondary-emerald); font-weight: 600;">●</span>
-                      <span>Learning</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                      <span style="color: var(--secondary-emerald); font-weight: 600;">●</span>
-                      <span>Mindset</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="highlight-image">
+              <img src="Images/image1-tree.png" alt="Daily missions illustration" />
             </div>
 
-            <div class="highlight">
-              <div class="inner">
-                <div class="mini">
-                  <div class="mini-card">
-                    <h4>Wealth Rings</h4>
-                    <p>Close your rings for Income, Learning, and Mindset.</p>
+            <div class="highlight-content">
+              <div class="highlight-symbol">
+                <img src="Images/dailymissions-symbol.png" alt="Daily missions symbol" />
+              </div>
+              <h3>Daily missions that match your life.</h3>
+              <p>
+                Get five missions per day across spending, income, learning, mindset, and a wildcard.
+                They're kept short (1–3 lines), profile-based, and balanced so you can actually finish them.
+              </p>
+
+              <div class="badge-row" aria-label="Highlights">
+                <div class="badge"><strong>5</strong> daily missions</div>
+                <div class="badge"><strong>XP</strong> scales with difficulty</div>
+                <div class="badge"><strong>AI</strong> tailored to your profile</div>
+              </div>
+
+              <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="color: var(--secondary-emerald); font-weight: 600;">●</span>
+                    <span>Income</span>
                   </div>
-                  <div class="mini-card">
-                    <h4>Focused AI Coach</h4>
-                    <p>Always steers back to money, saving, earning, and practical steps.</p>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="color: var(--secondary-emerald); font-weight: 600;">●</span>
+                    <span>Spending</span>
                   </div>
-                  <div class="mini-card">
-                    <h4>Progress Page</h4>
-                    <p>Daily and weekly interactive tasks that make progress visible.</p>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="color: var(--secondary-emerald); font-weight: 600;">●</span>
+                    <span>Learning</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="color: var(--secondary-emerald); font-weight: 600;">●</span>
+                    <span>Mindset</span>
                   </div>
                 </div>
               </div>
