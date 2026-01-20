@@ -648,26 +648,14 @@
       width: 100%;
       max-width: 100%;
     }
-    .download-cta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-      margin-top: 42px;
-    }
-    .download-cta-image {
-      width: 100%;
-      max-width: 500px;
-    }
-    .download-cta-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
     .download-cta-content {
       display: flex;
       flex-direction: column;
       gap: 24px;
+      align-items: center;
+      text-align: center;
+      max-width: 600px;
+      margin: 42px auto 0;
     }
     .download-cta-content p {
       color: var(--text-secondary);
@@ -832,17 +820,6 @@
       }
       .highlight-symbol,
       .highlight-rings {
-        margin: 0 auto;
-      }
-      .download-cta-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
-      }
-      .download-cta-image {
-        margin: 0 auto;
-      }
-      .download-cta-button {
         margin: 0 auto;
       }
       .feature { grid-column: span 6; }
@@ -1328,17 +1305,11 @@
             <h2>Now live in the App Store</h2>
           </div>
 
-          <div class="download-cta-grid">
-            <div class="download-cta-image">
-              <img src="Images/hand-phone.png" alt="Hand holding phone with WealthBoost AI app" />
-            </div>
-            
-            <div class="download-cta-content">
-              <p>Start building your wealth today!</p>
-              <a class="download-cta-button" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost AI">
-                Download WealthBoost AI <span aria-hidden="true">→</span>
-              </a>
-            </div>
+          <div class="download-cta-content">
+            <p>Start building your wealth today!</p>
+            <a class="download-cta-button" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost AI">
+              Download WealthBoost AI <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
