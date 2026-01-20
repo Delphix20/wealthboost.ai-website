@@ -368,7 +368,7 @@
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 32px;
-      align-items: start;
+      align-items: center;
     }
     .highlight-image {
       width: 100%;
@@ -388,11 +388,15 @@
       flex-direction: column;
       gap: 16px;
       width: 100%;
+      text-align: center;
     }
     .highlight-symbol {
       width: 96px;
       height: 96px;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .highlight-symbol img {
       width: 100%;
@@ -402,6 +406,9 @@
     .highlight-rings {
       width: 300px;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .highlight-rings img {
       width: 100%;
@@ -633,6 +640,71 @@
     .chev { width: 18px; height: 18px; opacity: 0.8; transition: transform 0.2s ease; }
     details[open] .chev { transform: rotate(180deg); }
 
+    /* Download CTA Section */
+    .download-cta {
+      padding: 80px 0;
+      width: 100%;
+      max-width: 100%;
+    }
+    .download-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+    .download-cta-image {
+      width: 100%;
+      max-width: 500px;
+    }
+    .download-cta-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .download-cta-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .download-cta-content h2 {
+      font-size: var(--section-title);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      font-weight: 700;
+      margin: 0;
+    }
+    .download-cta-content p {
+      color: var(--text-secondary);
+      font-size: var(--section-sub);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .download-cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(122,59,255,0.95) 0%, rgba(30,230,165,0.85) 100%);
+      color: white;
+      font-weight: 800;
+      font-size: 16px;
+      border: 0;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+      width: fit-content;
+    }
+    .download-cta-button:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
     /* Footer */
     footer {
       padding: 70px 0 44px;
@@ -769,6 +841,17 @@
       .highlight-rings {
         margin: 0 auto;
       }
+      .download-cta-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+      .download-cta-image {
+        margin: 0 auto;
+      }
+      .download-cta-button {
+        margin: 0 auto;
+      }
       .feature { grid-column: span 6; }
       .step { grid-column: span 12; }
       .preview { grid-column: span 6; }
@@ -783,6 +866,7 @@
       .mobile-menu-toggle { display: flex; }
       .hero { padding: 56px 0 38px; }
       section { padding: 64px 0; }
+      .download-cta { padding: 64px 0; }
       .feature { grid-column: span 12; }
       .preview { grid-column: span 12; }
       .trust-card { grid-column: span 12; }
@@ -920,7 +1004,7 @@
             </div>
           </div>
 
-          <div class="features-grid" style="margin-top: 34px;">
+          <div class="features-grid" style="margin-top: 60px;">
             <div class="feature">
               <div class="icon" aria-hidden="true">
                 <img src="Images/ai-symbol.png" alt="AI symbol" />
@@ -1241,9 +1325,20 @@
               stays alive.
             </p>
           </details>
+        </div>
+      </section>
 
-          <div style="text-align:center; margin-top: 22px;">
-            <a class="primary-btn" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer">
+      <!-- Download CTA Section -->
+      <section class="download-cta">
+        <div class="download-cta-grid">
+          <div class="download-cta-image">
+            <img src="Images/hand-phone.png" alt="Hand holding phone with WealthBoost AI app" />
+          </div>
+          
+          <div class="download-cta-content">
+            <h2>Now live in the App Store</h2>
+            <p>Start building your wealth today!</p>
+            <a class="download-cta-button" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost AI">
               Download WealthBoost AI <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -1260,7 +1355,7 @@
                 Build wealth with tiny daily actions. Personalized missions, progress tracking, and
                 a focused AI coach designed to help you stay consistent.
               </p>
-              <div class="copyright">© 2025 WealthBoost AI. All rights reserved.</div>
+              <div class="copyright">© 2026 WealthBoost AI. All rights reserved.</div>
             </div>
 
             <div class="footer-links" aria-label="Footer links">
