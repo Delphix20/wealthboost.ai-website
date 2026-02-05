@@ -89,7 +89,7 @@
       --glass: blur(14px);
       --stroke: 1px solid var(--card-border);
 
-      --hero-title: clamp(28px, 3.5vw, 48px);
+      --hero-title: clamp(24px, 3.0vw, 42px);
       --hero-sub: clamp(16px, 1.6vw, 20px);
       --section-title: clamp(24px, 2.8vw, 36px);
       --section-sub: clamp(15px, 1.45vw, 18px);
@@ -368,18 +368,25 @@
       opacity: 0.9;
     }
     .hero p {
-      font-size: var(--hero-sub);
+      font-size: var(--section-sub);
       color: var(--text-secondary);
       line-height: 1.65;
       max-width: 760px;
-      margin: 0 auto 26px;
+      margin: 0 auto 20px;
+    }
+    .hero-note {
+      font-size: var(--section-sub);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 auto 20px;
     }
     .hero-cta {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 6px;
     }
     .primary-btn {
@@ -425,6 +432,30 @@
       background: rgba(255,255,255,0.08);
       border-color: rgba(255,255,255,0.14);
     }
+    .text-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.2px;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .text-btn:hover {
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+    .text-btn .arrow-down {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    .text-btn:hover .arrow-down {
+      transform: translateY(2px);
+    }
 
     /* Section base */
     section { padding: 52px 0 88px 0; width: 100%; max-width: 100%; }
@@ -456,9 +487,9 @@
       margin-right: auto;
     }
     .highlight-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
       align-items: center;
       text-align: center;
     }
@@ -490,7 +521,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto;
+      margin: 0 auto 2px;
     }
     .highlight-symbol img {
       width: 100%;
@@ -503,7 +534,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto;
+      margin: 0 auto 2px;
     }
     .highlight-rings img {
       width: 100%;
@@ -568,8 +599,8 @@
     }
     .feature:hover {
       transform: translateY(-3px);
-      border-color: var(--card-hover-border);
-      background: rgba(255,255,255,0.07);
+      border-color: rgba(122,59,255,0.40);
+      background: rgba(255,255,255,0.05);
     }
     .feature .icon {
       display: flex;
@@ -639,8 +670,8 @@
     .step { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     .step:hover {
       transform: translateY(-3px);
-      border-color: var(--card-hover-border);
-      background: rgba(255,255,255,0.07);
+      border-color: rgba(122,59,255,0.40);
+      background: rgba(255,255,255,0.05);
     }
 
     /* Previews */
@@ -698,8 +729,8 @@
     .preview { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     .preview:hover {
       transform: translateY(-3px);
-      border-color: var(--card-hover-border);
-      background: rgba(255,255,255,0.07);
+      border-color: rgba(122,59,255,0.40);
+      background: rgba(255,255,255,0.05);
     }
     .preview strong { color: var(--text-primary); font-weight: 700; }
 
@@ -730,8 +761,8 @@
     .trust-card { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     .trust-card:hover {
       transform: translateY(-3px);
-      border-color: var(--card-hover-border);
-      background: rgba(255,255,255,0.07);
+      border-color: rgba(122,59,255,0.40);
+      background: rgba(255,255,255,0.05);
     }
 
     /* FAQ */
@@ -773,12 +804,12 @@
     details { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     details:hover {
       transform: translateY(-2px);
-      border-color: var(--card-hover-border);
-      background: rgba(255,255,255,0.07);
+      border-color: rgba(122,59,255,0.40);
+      background: rgba(255,255,255,0.05);
     }
     details[open] {
       border-color: rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.05);
     }
     .chev { width: 18px; height: 18px; opacity: 0.8; transition: transform 0.2s ease; }
     details[open] .chev { transform: rotate(180deg); }
@@ -928,16 +959,7 @@
     }
     .pricing-card.selected { border: 2px solid var(--primary-purple); }
     .pricing-card.selected:hover { transform: translateY(-2px); }
-    .pricing-card.recommended { position: relative; z-index: 1; }
-    .pricing-card.recommended::before {
-      content: "";
-      position: absolute;
-      inset: -16px;
-      border-radius: calc(var(--corner-radius-large) + 12px);
-      background: radial-gradient(280px 180px at 50% 0%, rgba(122,59,255,0.25) 0%, transparent 70%);
-      z-index: -1;
-      pointer-events: none;
-    }
+    .pricing-card.recommended { position: relative; }
     .pricing-badge {
       position: absolute;
       top: -12px;
@@ -1101,39 +1123,26 @@
           </div>
 
           <h1>
-            Build wealth with <span class="gradient-text">tiny daily moves</span> that compound
+            Build wealth<br>with <span class="gradient-text">tiny daily moves</span> that compound
           </h1>
-
-          <div class="hero-pill">
-            <span>Daily missions</span><span class="dot"></span>
-            <span>AI coach</span><span class="dot"></span>
-            <span>Progress rings</span>
-          </div>
 
           <p>
             <span class="hero-line-1">WealthBoost AI turns your profile</span> <span class="hero-line-2">into a simple daily plan:</span><br>
             <span class="hero-line-3">short missions, clear progress, and</span> <span class="hero-line-4">a practical coach that keeps you focused</span><br><span class="hero-line-5">on income, saving, learning, and mindset.</span>
           </p>
 
+          <p class="hero-note">Designed for iPhone and iPad. Clean, calm, and built for daily momentum.</p>
+
           <div class="hero-cta">
             <a class="primary-btn" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost AI">
-              Get the app <span class="arrow" aria-hidden="true">→</span>
+              Download on iOS <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a class="secondary-btn" href="#previews" aria-label="See app previews">
-              See it in action <span aria-hidden="true">▾</span>
+            <a class="text-btn" href="#previews" aria-label="Learn more">
+              Learn more <span class="arrow-down" aria-hidden="true">↓</span>
             </a>
           </div>
         </div>
       </header>
-
-      <!-- Download -->
-      <section class="download anchor" id="download">
-        <div class="container">
-          <div class="section-header">
-            <p>Designed for iPhone and iPad. Clean, calm, and built for daily momentum.</p>
-          </div>
-        </div>
-      </section>
 
       <!-- Apple-ish Highlights -->
       <section class="anchor" id="features">
@@ -1157,6 +1166,11 @@
               </div>
               
               <div class="highlight-content">
+                <div class="hero-pill">
+                  <span>Daily missions</span><span class="dot"></span>
+                  <span>AI coach</span><span class="dot"></span>
+                  <span>Progress rings</span>
+                </div>
                 <h3>Daily missions and Progress tasks<br>that match your life.</h3>
                 <p>
                   You get five missions per day across spending, income, learning, mindset, and a wildcard. They're kept short, profile-based, and balanced so you can actually finish them.
