@@ -386,19 +386,19 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-top: 6px;
+      gap: 16px;
+      margin-top: 8px;
     }
     .primary-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 18px;
+      padding: 12px 16px;
       border-radius: 999px;
       background: linear-gradient(135deg, rgba(122,59,255,0.95) 0%, rgba(30,230,165,0.85) 100%);
       color: white;
       font-weight: 800;
-      font-size: 15px;
+      font-size: 14px;
       border: 0;
       box-shadow: var(--shadow-soft);
       transition: transform 0.2s ease, opacity 0.2s ease;
@@ -434,10 +434,11 @@
     }
     .text-btn {
       display: inline-flex;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
-      padding: 6px 8px;
-      border-radius: 999px;
+      gap: 4px;
+      padding: 4px 6px;
+      border-radius: 12px;
       background: transparent;
       color: var(--text-secondary);
       font-weight: 700;
@@ -451,6 +452,7 @@
     }
     .text-btn .arrow-down {
       display: inline-block;
+      line-height: 1;
       transition: transform 0.2s ease;
     }
     .text-btn:hover .arrow-down {
@@ -1123,7 +1125,7 @@
           </div>
 
           <h1>
-            Build wealth<br>with <span class="gradient-text">tiny daily moves</span> that compound
+            Build wealth with <span class="gradient-text">tiny daily moves</span> that compound
           </h1>
 
           <p>
@@ -1137,7 +1139,7 @@
             <a class="primary-btn" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost AI">
               Download on iOS <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a class="text-btn" href="#previews" aria-label="Learn more">
+            <a class="text-btn" href="#features" aria-label="Learn more">
               Learn more <span class="arrow-down" aria-hidden="true">↓</span>
             </a>
           </div>
@@ -1156,6 +1158,12 @@
           </div>
 
           <div class="highlight-grid">
+            <div class="hero-pill" style="margin-bottom: 18px;">
+              <span>Daily missions</span><span class="dot"></span>
+              <span>AI coach</span><span class="dot"></span>
+              <span>Progress rings</span>
+            </div>
+
             <div class="highlight-image" style="margin: 0 auto 32px;">
               <img src="Images/image1-tree.png" alt="Daily missions illustration" />
             </div>
@@ -1166,14 +1174,10 @@
               </div>
               
               <div class="highlight-content">
-                <div class="hero-pill">
-                  <span>Daily missions</span><span class="dot"></span>
-                  <span>AI coach</span><span class="dot"></span>
-                  <span>Progress rings</span>
-                </div>
                 <h3>Daily missions and Progress tasks<br>that match your life.</h3>
                 <p>
-                  You get five missions per day across spending, income, learning, mindset, and a wildcard. They're kept short, profile-based, and balanced so you can actually finish them.
+                  You get five missions per day across spending, income, learning, mindset, and a wildcard.<br>
+                  They're kept short, profile-based, and balanced so you can actually finish them.
                 </p>
                 <p>
                   You also get daily and weekly interactive tasks<br>that make progress visible.
@@ -1189,7 +1193,8 @@
               <div class="highlight-content">
                 <h3>Close your Wealth Rings</h3>
                 <p>
-                  Close your daily rings for Income, Learning, and Mindset by completing missions and progress tasks.
+                  Close your daily rings for Income, Learning, and Mindset<br>
+                  by completing missions and progress tasks.
                 </p>
               </div>
             </div>
@@ -1474,7 +1479,7 @@
             <div class="faq-divider" aria-hidden="true"></div>
             <p>
               It’s educational coaching and habit-building. It focuses on practical steps, budgeting,
-              income ideas, and simple investing education, not individualized investment, tax, or legal advice.
+              income ideas, and simple investing education,not individualized investment, tax, or legal advice.
             </p>
           </details>
 
