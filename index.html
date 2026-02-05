@@ -367,6 +367,7 @@
       background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-emerald) 100%);
       opacity: 0.9;
     }
+    .pill-break { display: none; }
     .hero p {
       font-size: var(--section-sub);
       color: var(--text-secondary);
@@ -914,6 +915,35 @@
       align-items: center;
       justify-content: flex-end;
     }
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .social-link:hover {
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
     .footer-links a {
       color: var(--text-secondary);
       font-size: 14px;
@@ -1072,12 +1102,26 @@
         flex-wrap: wrap;
         justify-content: center;
         row-gap: 6px;
-        column-gap: 10px;
+        column-gap: 8px;
         padding: 8px 12px;
         max-width: 360px;
       }
       .hero-pill .dot {
-        display: inline-block;
+        display: none;
+      }
+      .hero-pill .pill-item {
+        display: inline-flex;
+        align-items: center;
+      }
+      .hero-pill .pill-item:not(.item-1)::before {
+        content: "•";
+        margin-right: 6px;
+        color: var(--text-tertiary);
+      }
+      .pill-break {
+        display: block;
+        flex-basis: 100%;
+        height: 0;
       }
     }
 
@@ -1185,11 +1229,12 @@
 
           <div class="highlight-grid">
             <div class="hero-pill" style="margin-bottom: 18px;">
-              <span>Daily missions</span><span class="dot"></span>
-              <span>Progress tasks</span><span class="dot"></span>
-              <span>Daily &amp; weekly commitments</span><span class="dot"></span>
-              <span>AI coach</span><span class="dot"></span>
-              <span>Progress rings</span>
+              <span class="pill-item item-1">Daily missions</span><span class="dot"></span>
+              <span class="pill-item item-2">Progress tasks</span><span class="dot"></span>
+              <span class="pill-break" aria-hidden="true"></span>
+              <span class="pill-item item-3">Daily &amp; weekly commitments</span><span class="dot"></span>
+              <span class="pill-item item-4">AI coach</span><span class="dot"></span>
+              <span class="pill-item item-5">Progress rings</span>
             </div>
 
             <div class="highlight-image" style="margin: 0 auto 32px;">
@@ -1591,10 +1636,33 @@
               <div class="copyright">© 2026 WealthBoost AI. All rights reserved.</div>
             </div>
 
-            <div class="footer-links" aria-label="Footer links">
-              <a href="https://wealthboost.app/privacy_policy" id="privacy-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-              <a href="https://wealthboost.app/privacy_policy" id="terms-link" target="_blank" rel="noopener noreferrer">Terms of Service</a>
-              <a href="mailto:devpaulcrp@gmail.com" id="contact-link">Contact</a>
+            <div class="footer-right">
+              <div class="footer-socials" aria-label="Social links">
+                <a class="social-link" href="https://www.tiktok.com/@wealthboost.ai" target="_blank" rel="noopener noreferrer" aria-label="TikTok @wealthboost.ai">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 4v8.2a3.8 3.8 0 1 1-3-3.7"/>
+                    <path d="M14 4c1.2 2.2 2.9 3.4 5 3.7"/>
+                  </svg>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/wealthboost.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @wealthboost.ai">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"/>
+                  </svg>
+                </a>
+                <a class="social-link" href="https://x.com/DevPauCRP" target="_blank" rel="noopener noreferrer" aria-label="X @DevPauCRP">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 4l14 16"/>
+                    <path d="M19 4L5 20"/>
+                  </svg>
+                </a>
+              </div>
+              <div class="footer-links" aria-label="Footer links">
+                <a href="https://wealthboost.app/privacy_policy" id="privacy-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="https://wealthboost.app/privacy_policy" id="terms-link" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                <a href="mailto:devpaulcrp@gmail.com" id="contact-link">Contact</a>
+              </div>
             </div>
           </div>
         </div>
