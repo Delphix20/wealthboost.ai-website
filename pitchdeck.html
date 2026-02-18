@@ -1,571 +1,1165 @@
-<!-- pitch.html -->
-<!DOCTYPE html>
+<!-- pitch.html  |  WealthBoost AI investor pitch (single-file, GitHub Pages friendly) -->
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>WealthBoost AI — Investor Pitch</title>
-    <meta
-      name="description"
-      content="WealthBoost AI investor pitch: a daily, behavioral, AI-guided wealth-building companion for iOS."
-    />
-    <style>
-      :root{
-        --bg0:#070711;
-        --bg1:#0b0b16;
-        --card:#101024cc;
-        --card2:#0f0f22b3;
-        --line:#ffffff14;
-        --text:#f4f6ff;
-        --muted:#c6c9d9;
-        --muted2:#a9aec4;
-        --green:#30e58f;
-        --purple:#8b5cf6;
-        --gold:#f5c26b;
-        --shadow: 0 18px 60px rgba(0,0,0,.45);
-        --radius:18px;
-        --radius2:24px;
-        --max:1080px;
-      }
-      *{box-sizing:border-box}
-      html,body{height:100%}
-      body{
-        margin:0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-        color:var(--text);
-        background:
-          radial-gradient(1200px 700px at 15% 10%, rgba(139,92,246,.25), transparent 55%),
-          radial-gradient(900px 600px at 80% 20%, rgba(48,229,143,.18), transparent 60%),
-          radial-gradient(1000px 700px at 50% 95%, rgba(245,194,107,.12), transparent 55%),
-          linear-gradient(180deg, var(--bg0), var(--bg1));
-        overflow-x:hidden;
-      }
-      a{color:inherit;text-decoration:none}
-      .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
-      .nav{
-        position:sticky; top:0; z-index:40;
-        backdrop-filter: blur(10px);
-        background: linear-gradient(180deg, rgba(7,7,17,.82), rgba(7,7,17,.55));
-        border-bottom:1px solid var(--line);
-      }
-      .nav-inner{
-        display:flex; align-items:center; justify-content:space-between;
-        padding:14px 0;
-        gap:14px;
-      }
-      .brand{
-        display:flex; align-items:center; gap:10px; min-width:220px;
-        font-weight:700; letter-spacing:.2px;
-      }
-      .dot{
-        width:10px; height:10px; border-radius:999px;
-        background: radial-gradient(circle at 30% 30%, var(--green), rgba(48,229,143,.25));
-        box-shadow: 0 0 0 6px rgba(48,229,143,.08);
-      }
-      .nav-links{
-        display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
-        color:var(--muted);
-        font-size:14px;
-      }
-      .nav-links a{padding:8px 10px; border-radius:12px}
-      .nav-links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-      .cta{
-        display:flex; gap:10px; align-items:center; justify-content:flex-end;
-        min-width:220px;
-      }
-      .btn{
-        display:inline-flex; align-items:center; justify-content:center;
-        padding:10px 14px;
-        border-radius:14px;
-        border:1px solid var(--line);
-        background: rgba(255,255,255,.06);
-        color:var(--text);
-        font-weight:600;
-        font-size:14px;
-        transition: transform .12s ease, background .12s ease, border-color .12s ease;
-        box-shadow: 0 10px 40px rgba(0,0,0,.25);
-      }
-      .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16)}
-      .btn.primary{
-        border-color: rgba(48,229,143,.35);
-        background: linear-gradient(135deg, rgba(48,229,143,.22), rgba(139,92,246,.14));
-      }
-      .hero{
-        padding:56px 0 30px;
-      }
-      .hero-grid{
-        display:grid;
-        grid-template-columns: 1.2fr .8fr;
-        gap:18px;
-        align-items:stretch;
-      }
-      @media (max-width: 940px){
-        .hero-grid{grid-template-columns:1fr}
-        .brand,.cta{min-width:unset}
-      }
-      .card{
-        background: linear-gradient(180deg, var(--card), var(--card2));
-        border:1px solid var(--line);
-        border-radius: var(--radius2);
-        box-shadow: var(--shadow);
-      }
-      .hero-main{padding:26px}
-      .kicker{
-        display:inline-flex; align-items:center; gap:10px;
-        color:var(--muted);
-        font-size:13px;
-        padding:7px 10px;
-        border-radius:999px;
-        border:1px solid var(--line);
-        background: rgba(255,255,255,.04);
-      }
-      .pill{
-        display:inline-flex; align-items:center;
-        padding:4px 10px;
-        border-radius:999px;
-        border:1px solid rgba(48,229,143,.22);
-        color:var(--green);
-        background: rgba(48,229,143,.08);
-        font-weight:700;
-        font-size:12px;
-      }
-      h1{
-        margin:14px 0 10px;
-        font-size:44px;
-        line-height:1.05;
-        letter-spacing:-.6px;
-      }
-      @media (max-width:520px){h1{font-size:36px}}
-      .lead{
-        margin:0 0 16px;
-        color:var(--muted);
-        font-size:16px;
-        line-height:1.6;
-        max-width:70ch;
-      }
-      .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-      .hero-side{padding:18px}
-      .stat-grid{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-      }
-      .stat{
-        padding:14px;
-        border-radius: var(--radius);
-        border:1px solid var(--line);
-        background: rgba(255,255,255,.03);
-      }
-      .stat .label{color:var(--muted2); font-size:12px}
-      .stat .value{font-size:18px; font-weight:800; margin-top:6px}
-      .mini{
-        margin-top:10px;
-        padding:14px;
-        border-radius: var(--radius);
-        border:1px solid var(--line);
-        background: rgba(255,255,255,.03);
-        color:var(--muted);
-        line-height:1.55;
-        font-size:14px;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WealthBoost AI — Investor Pitch</title>
+  <meta name="description" content="WealthBoost AI — The daily operating system for building wealth. Investor pitch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root{
+      --bg0:#070613;
+      --bg1:#0B0820;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.085);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.58);
+      --green:#34F7A1;
+      --purple:#7C4DFF;
+      --gold:#F6C861;
+      --shadow: 0 14px 48px rgba(0,0,0,.45);
+      --r: 18px;
+      --r2: 26px;
+      --max: 1120px;
+      --pad: 22px;
+    }
 
-      .section{padding:22px 0}
-      .section h2{
-        font-size:22px;
-        letter-spacing:-.2px;
-        margin:0 0 10px;
-      }
-      .section p{margin:0; color:var(--muted); line-height:1.65}
-      .grid{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:14px;
-        margin-top:14px;
-      }
-      @media (max-width: 860px){.grid{grid-template-columns:1fr}}
-      .tile{
-        padding:18px;
-        border-radius: var(--radius2);
-        border:1px solid var(--line);
-        background: rgba(255,255,255,.03);
-      }
-      .tile h3{margin:0 0 8px; font-size:16px}
-      .tile ul{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.7}
-      .tile li{margin:4px 0}
-      .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-      .tag{
-        font-size:12px;
-        color:var(--muted);
-        padding:6px 10px;
-        border-radius:999px;
-        border:1px solid var(--line);
-        background: rgba(255,255,255,.03);
-      }
-      .tag b{color:var(--green); font-weight:800}
-      .full{
-        padding:18px;
-        border-radius: var(--radius2);
-        border:1px solid var(--line);
-        background: rgba(255,255,255,.03);
-        margin-top:14px;
-      }
-      .cols{
-        display:grid;
-        grid-template-columns:1fr 1fr 1fr;
-        gap:12px;
-        margin-top:12px;
-      }
-      @media (max-width: 940px){.cols{grid-template-columns:1fr}}
-      .col{
-        padding:14px;
-        border-radius: var(--radius);
-        border:1px solid var(--line);
-        background: rgba(255,255,255,.03);
-      }
-      .col .t{font-weight:800; margin-bottom:6px}
-      .col .d{color:var(--muted); line-height:1.6; font-size:14px}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: "Nunito", -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Display", system-ui, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(124,77,255,.28), transparent 55%),
+        radial-gradient(900px 600px at 80% 25%, rgba(52,247,161,.20), transparent 55%),
+        radial-gradient(900px 700px at 70% 90%, rgba(246,200,97,.16), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+      min-height:100vh;
+    }
 
-      .footer{
-        padding:30px 0 50px;
-        border-top:1px solid var(--line);
-        margin-top:26px;
-        color:var(--muted);
-        font-size:13px;
-      }
-      .footer a{color:var(--text); opacity:.9}
-      .footer a:hover{opacity:1}
-      .small-note{color:var(--muted2); font-size:12px; margin-top:10px}
-      .accent{
-        color:var(--green);
-        font-weight:800;
-      }
-    </style>
-  </head>
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 0 var(--pad); }
 
-  <body>
-    <div class="nav">
-      <div class="wrap">
-        <div class="nav-inner">
-          <div class="brand">
-            <span class="dot" aria-hidden="true"></span>
-            <span>WealthBoost AI</span>
-            <span class="pill">Investor Pitch</span>
-          </div>
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(8,6,20,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar .row{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .brand-icon{
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--green), var(--purple));
+      box-shadow: 0 0 18px rgba(52,247,161,.35);
+    }
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .chip{
+      font-size:12px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius: 999px;
+      color: rgba(255,255,255,.78);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .chip:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.075);
+      border-color: rgba(255,255,255,.16);
+    }
 
-          <div class="nav-links">
-            <a href="#pitch">Pitch</a>
-            <a href="#problem">Problem</a>
-            <a href="#solution">Solution</a>
-            <a href="#product">Product</a>
-            <a href="#model">Business</a>
-            <a href="#go">Go-to-market</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#ask">Ask</a>
-          </div>
+    /* Hero */
+    .hero{ padding: 54px 0 26px; text-align:center; }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.78);
+      font-size:13px;
+    }
+    .kicker b{ color:var(--green); font-weight:800; }
+    h1{
+      margin: 16px 0 10px;
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height:1.04;
+      letter-spacing:-.8px;
+    }
+    .tagline{
+      display:block;
+      font-size: .72em;
+      font-weight:600;
+      letter-spacing:-.4px;
+      color: rgba(255,255,255,.86);
+    }
+    .lead{
+      margin: 0 auto 18px;
+      color: var(--muted);
+      font-size: clamp(16px, 1.55vw, 18px);
+      line-height:1.55;
+      max-width: 840px;
+    }
+    .ctaRow{ display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
+    .hero .ctaRow{ justify-content:center; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.86);
+      font-weight:650;
+      font-size:13px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(52,247,161,.22), rgba(124,77,255,.22));
+      border-color: rgba(52,247,161,.24);
+      box-shadow: 0 18px 60px rgba(52,247,161,.10);
+    }
+    .btn.primary:hover{ border-color: rgba(52,247,161,.35); }
 
-          <div class="cta">
-            <a class="btn" href="https://wealthboost.ai/" target="_blank" rel="noreferrer">Main site</a>
-            <a class="btn primary" href="#ask">Contact</a>
-          </div>
+    /* Sections */
+    section{ padding: 26px 0; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: none;
+      border-radius: var(--r2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .in{ padding: 18px; }
+    .card.soft{ background: rgba(255,255,255,.045); box-shadow: 0 10px 40px rgba(0,0,0,.32); }
+
+    .row2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    @media (max-width: 820px){ .row2{ grid-template-columns: 1fr; } }
+
+    .numHead{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:12px;
+    }
+    .num{
+      display:inline-flex; align-items:center; justify-content:center;
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      font-weight:900;
+      letter-spacing:.2px;
+      color: rgba(255,255,255,.92);
+    }
+    .numGlow{
+      background: linear-gradient(135deg, rgba(52,247,161,.24), rgba(124,77,255,.24));
+      border-color: rgba(52,247,161,.24);
+      box-shadow: 0 0 0 1px rgba(52,247,161,.10) inset, 0 18px 60px rgba(124,77,255,.10);
+    }
+    .h{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-.25px;
+    }
+    .p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .list{
+      margin: 12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      color: rgba(255,255,255,.84);
+      font-size:14px;
+      line-height:1.45;
+    }
+    .tick{
+      width:18px; height:18px; border-radius:6px;
+      background: rgba(52,247,161,.18);
+      border: 1px solid rgba(52,247,161,.20);
+      display:inline-flex; align-items:center; justify-content:center;
+      flex: 0 0 18px;
+      margin-top:2px;
+    }
+    .tick:before{
+      content:"";
+      width:8px; height:8px; border-radius:3px;
+      background: var(--green);
+      box-shadow: 0 0 14px rgba(52,247,161,.35);
+    }
+
+    /* Metric cards */
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .metrics{ grid-template-columns: 1fr; } }
+    .metric{
+      padding: 16px;
+      border-radius: var(--r2);
+      background: rgba(255,255,255,.055);
+      border: none;
+    }
+    .metric .k{
+      font-size:12px; color: var(--muted2);
+      letter-spacing:.25px;
+    }
+    .metric .v{
+      margin-top:6px;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing:-.4px;
+    }
+    .metric .s{
+      margin-top:6px;
+      font-size:13px; color: var(--muted);
+      line-height:1.4;
+    }
+    .chart{
+      margin-top:14px;
+      display:grid;
+      gap:10px;
+    }
+    .bar{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:12px;
+      color: var(--muted);
+    }
+    .bar .label{
+      width: 170px;
+      color: rgba(255,255,255,.88);
+      font-weight:600;
+      font-size:12px;
+    }
+    .bar .track{
+      position:relative;
+      flex:1;
+      height:10px;
+      background: rgba(255,255,255,.08);
+      border-radius:999px;
+      overflow:hidden;
+    }
+    .bar .fill{
+      position:absolute;
+      inset:0 auto 0 0;
+      width:50%;
+      background: linear-gradient(90deg, rgba(52,247,161,.85), rgba(124,77,255,.9));
+      box-shadow: 0 0 12px rgba(52,247,161,.25);
+    }
+    .bar .value{
+      width:70px;
+      text-align:right;
+      color: var(--muted2);
+      font-variant-numeric: tabular-nums;
+      font-size:12px;
+    }
+    .note{
+      margin-top:10px;
+      color: var(--muted2);
+      font-size:12px;
+    }
+    .table{
+      margin-top:14px;
+      display:grid;
+      gap:8px;
+      font-variant-numeric: tabular-nums;
+    }
+    .trow{
+      display:grid;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr;
+      gap:10px;
+      align-items:center;
+      padding:10px 12px;
+      border-radius:12px;
+      background: rgba(255,255,255,.04);
+    }
+    .thead{
+      background: rgba(255,255,255,.03);
+      color: var(--muted2);
+      font-size:11px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+    }
+    .tcell{
+      color: rgba(255,255,255,.9);
+      font-size:13px;
+      font-weight:600;
+    }
+    @media (max-width: 760px){
+      .trow{ grid-template-columns: 1fr 1fr; }
+      .thead{ display:none; }
+    }
+    @media (max-width: 700px){
+      .bar{ flex-wrap:wrap; }
+      .bar .label{ width:auto; }
+      .bar .track{ width:100%; }
+      .bar .value{ width:auto; }
+    }
+    .line-chart{
+      margin-top:14px;
+      padding:12px;
+      border-radius:16px;
+      background: rgba(255,255,255,.04);
+    }
+    .line-chart svg{ width:100%; height:200px; display:block; }
+    .legend{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      font-size:12px;
+      color: var(--muted2);
+      margin-top:8px;
+      flex-wrap:wrap;
+    }
+    .legend .key{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .legend .swatch{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--green);
+    }
+    .legend .swatch.purple{ background: var(--purple); }
+    .mini-charts{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .mini-chart{
+      padding:12px;
+      border-radius:16px;
+      background: rgba(255,255,255,.04);
+    }
+    .mini-chart .title{
+      font-size:12px;
+      color: var(--muted2);
+      margin-bottom:6px;
+      letter-spacing:.2px;
+    }
+    .mini-chart svg{ width:100%; height:160px; display:block; }
+    @media (max-width: 800px){
+      .mini-charts{ grid-template-columns: 1fr; }
+    }
+    .productShot{
+      margin-top:14px;
+      display:grid;
+      place-items:center;
+      gap:10px;
+    }
+    .productShot img{
+      width: min(520px, 92%);
+      height:auto;
+      border-radius: 26px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+    }
+    .productShot .caption{
+      font-size:12px;
+      color: var(--muted2);
+      text-align:center;
+      max-width: 560px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 34px 0 48px;
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+      line-height:1.55;
+      text-align: center;
+    }
+    .sources a{
+      color: rgba(255,255,255,.76);
+      text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,.22);
+      text-underline-offset: 3px;
+    }
+    .hr{
+      height:1px; background: rgba(255,255,255,.10);
+      margin: 18px 0 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="row">
+        <div class="brand">
+          <img src="wealthboost-icon.png" alt="WealthBoost AI" class="brand-icon" />
+          <span>WealthBoost AI</span>
+        </div>
+        <div class="nav">
+          <a class="chip" href="#s2">1</a>
+          <a class="chip" href="#s3">2</a>
+          <a class="chip" href="#s4">3</a>
+          <a class="chip" href="#s5">4</a>
+          <a class="chip" href="#s6">5</a>
+          <a class="chip" href="#s7">6</a>
+          <a class="chip" href="#s8">7</a>
+          <a class="chip" href="#s9">8</a>
+          <a class="chip" href="#s10">9</a>
+          <a class="chip" href="#s11">10</a>
+          <a class="chip" href="#s12">11</a>
+          <a class="chip" href="#s13">12</a>
+          <a class="chip" href="#s14">13</a>
+          <a class="chip" href="#s15">14</a>
         </div>
       </div>
     </div>
+  </div>
 
-    <header class="hero" id="pitch">
-      <div class="wrap">
-        <div class="hero-grid">
-          <div class="card hero-main">
-            <div class="kicker">
-              <span class="pill">Elevator pitch</span>
-              <span>Daily, behavioral, AI-guided money momentum.</span>
-            </div>
+  <div class="wrap">
+    <!-- 1) Title -->
+    <section id="s1" class="hero">
+      <div class="kicker">Investor Pitch</div>
+      <h1>WealthBoost AI<span class="tagline">The daily wealth building system.</span></h1>
+      <p class="lead">
+        Wealth is built through consistent execution, not occasional motivation.
+        WealthBoost AI turns wealth-building into a daily habit with structured missions, progress systems, and focused AI coaching.
+      </p>
+      <div class="ctaRow">
+        <a class="btn primary" href="#s15">Investment Ask</a>
+        <a class="btn" href="https://wealthboost.ai/" target="_blank" rel="noopener">Product Website</a>
+        <a class="btn" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener">Test the Product</a>
+      </div>
+    </section>
 
-            <h1>
-              A personal wealth companion that turns
-              <span class="accent">intent</span> into daily <span class="accent">action</span>.
-            </h1>
-
-            <p class="lead">
-              WealthBoost AI helps people build stronger money habits through a focused daily system:
-              short missions, visible progress, and a practical coach that stays centered on money, earning,
-              saving, learning, and mindset. It feels like a calm daily ritual, not a stressful finance dashboard.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn primary" href="https://apps.apple.com/" target="_blank" rel="noreferrer">App Store link</a>
-              <a class="btn" href="#product">What users get</a>
-              <a class="btn" href="#model">How it makes money</a>
-            </div>
-
-            <div class="small-note">
-              Note: This pitch page intentionally omits traction metrics for now.
+    <!-- 2) The Problem -->
+    <section id="s2">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">1</div>
+              <div>
+                <h2 class="h">The Problem</h2>
+                <p class="p">
+                  Building wealth is not a knowledge problem. It’s an execution problem.
+                </p>
+              </div>
             </div>
           </div>
 
-          <aside class="card hero-side">
-            <div class="stat-grid">
-              <div class="stat">
-                <div class="label">Platform</div>
-                <div class="value">iOS</div>
-              </div>
-              <div class="stat">
-                <div class="label">Category</div>
-                <div class="value">Consumer AI</div>
-              </div>
-              <div class="stat">
-                <div class="label">Core loop</div>
-                <div class="value">Daily missions</div>
-              </div>
-              <div class="stat">
-                <div class="label">Business model</div>
-                <div class="value">Subscription</div>
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft">
+              <div class="in">
+                <h3 class="h" style="font-size:16px;">Millions of people</h3>
+                <ul class="list">
+                  <li class="li"><span class="tick"></span><span>Consume finance content daily</span></li>
+                  <li class="li"><span class="tick"></span><span>Download budgeting apps</span></li>
+                  <li class="li"><span class="tick"></span><span>Try “systems” and productivity hacks</span></li>
+                </ul>
               </div>
             </div>
+            <div class="card soft">
+              <div class="in">
+                <h3 class="h" style="font-size:16px;">Yet they fail because</h3>
+                <ul class="list">
+                  <li class="li"><span class="tick"></span><span>Advice becomes overwhelming</span></li>
+                  <li class="li"><span class="tick"></span><span>Tools require planning, not action</span></li>
+                  <li class="li"><span class="tick"></span><span>There is no structured daily execution layer</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-            <div class="mini">
-              <div style="font-weight:800; color:var(--text); margin-bottom:8px">Why now</div>
-              People want financial progress, but most apps overwhelm them.
-              WealthBoost AI simplifies money improvement into small daily wins that compound.
-            </div>
-
-            <div class="mini">
-              <div style="font-weight:800; color:var(--text); margin-bottom:8px">What we believe</div>
-              Consistency beats intensity. The product is designed to keep users moving daily with
-              clarity, momentum, and a premium calm UX.
-            </div>
-          </aside>
+          <p class="p" style="margin-top:14px;">
+            Today, there is no product that makes wealth creation feel like a daily habit with clear steps and visible momentum.
+          </p>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main class="wrap">
-      <section class="section" id="problem">
-        <h2>The problem</h2>
-        <div class="grid">
-          <div class="tile">
-            <h3>Most people feel overwhelmed</h3>
-            <p>
-              Finance apps often start with tracking, categories, and long-term planning.
-              For many users, that turns into guilt, avoidance, and churn.
-            </p>
-            <ul>
-              <li>Too many features before the first win</li>
-              <li>Advice that doesn’t fit the user’s life</li>
-              <li>Motivation spikes, then drop-off</li>
-            </ul>
-          </div>
-
-          <div class="tile">
-            <h3>Behavior change is the missing layer</h3>
-            <p>
-              People don’t need more information. They need a system that makes the next step obvious,
-              small, and repeatable.
-            </p>
-            <ul>
-              <li>Clear daily actions</li>
-              <li>Visible momentum</li>
-              <li>Personalized guidance without noise</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="solution">
-        <h2>The solution</h2>
-        <div class="full">
-          <p>
-            WealthBoost AI turns a user’s profile into a daily plan: missions across key money areas, progress
-            mechanics that reward consistency, and an AI coach that keeps the user focused on wealth-building.
-          </p>
-
-          <div class="tagrow">
-            <span class="tag"><b>Daily</b> missions</span>
-            <span class="tag"><b>Progress</b> rings + XP</span>
-            <span class="tag"><b>Focused</b> AI coaching</span>
-            <span class="tag"><b>Personalized</b> by profile</span>
-            <span class="tag"><b>Calm</b> premium UX</span>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div class="tile">
-            <h3>What makes it different</h3>
-            <ul>
-              <li>Designed as a daily ritual, not a budgeting spreadsheet</li>
-              <li>Small actions first, compounding systems over time</li>
-              <li>AI guidance stays on money and wealth topics</li>
-              <li>Progress feels visible without overwhelming charts</li>
-            </ul>
-          </div>
-          <div class="tile">
-            <h3>Outcome we optimize for</h3>
-            <ul>
-              <li>Users finish today’s tasks</li>
-              <li>Users return tomorrow</li>
-              <li>Users build confidence and momentum</li>
-              <li>Users translate learning into real-world action</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="product">
-        <h2>Product</h2>
-        <div class="grid">
-          <div class="tile">
-            <h3>The daily loop</h3>
-            <ul>
-              <li>Daily missions across income, learning, spending, mindset</li>
-              <li>Daily money thought widget (lock & home screen)</li>
-              <li>Progress tasks: lessons, quizzes, reflections</li>
-              <li>Weekly commitments and reflection loop</li>
-            </ul>
-          </div>
-          <div class="tile">
-            <h3>AI coach (money-first)</h3>
-            <ul>
-              <li>Guidance tailored to user goals and constraints</li>
-              <li>Practical, step-by-step suggestions</li>
-              <li>Stays focused on wealth-building topics</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="full">
-          <h3 style="margin:0 0 10px; font-size:16px">Screenshots / visuals</h3>
-          <p>
-            Replace this placeholder block with your screenshot strip (same style as your main site).
-            Suggested: 3 phone mockups in a row, dark background, subtle glow, captions below.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="model">
-        <h2>Business model</h2>
-        <div class="cols">
-          <div class="col">
-            <div class="t">Subscription</div>
-            <div class="d">
-              Premium unlocks missions, coaching, progress features, and personalized ideas.
-              5-day free trial to reduce friction.
-            </div>
-          </div>
-          <div class="col">
-            <div class="t">Value proposition</div>
-            <div class="d">
-              A daily money companion that replaces overwhelm with clarity and consistent execution.
-              Built to feel premium and simple.
-            </div>
-          </div>
-          <div class="col">
-            <div class="t">Future expansion</div>
-            <div class="d">
-              Additional tiers, partner offers, localized markets, and new premium modules
-              built around daily behavior loops.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="go">
-        <h2>Go-to-market</h2>
-        <div class="grid">
-          <div class="tile">
-            <h3>Short-form performance creative</h3>
-            <p>
-              Fast, high-retention ads focused on “clarity over complexity,” showing real UI and the daily loop.
-            </p>
-            <ul>
-              <li>Hook in first 0.5–1.0s</li>
-              <li>Show daily mission screen</li>
-              <li>Clear App Store CTA</li>
-            </ul>
-          </div>
-
-          <div class="tile">
-            <h3>Indie + product-led distribution</h3>
-            <p>
-              Focus on trusted tech channels and communities that amplify polished indie iOS products.
-            </p>
-            <ul>
-              <li>Press outreach (indie app columns)</li>
-              <li>Product directories</li>
-              <li>Founder-led X/TikTok content</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="roadmap">
-        <h2>Roadmap (next 90 days)</h2>
-        <div class="grid">
-          <div class="tile">
-            <h3>Product</h3>
-            <ul>
-              <li>Improve onboarding completion and activation</li>
-              <li>Expand Daily Momentum and “tiny wins” modules</li>
-              <li>Refine personalization and content variety</li>
-              <li>Add analytics dashboard for funnel insights</li>
-            </ul>
-          </div>
-          <div class="tile">
-            <h3>Growth</h3>
-            <ul>
-              <li>Iterate US creatives and landing flow for conversion lift</li>
-              <li>Test creator partnerships and review-style UGC</li>
-              <li>ASO improvements: screenshots, promo text, keywords</li>
-              <li>Retargeting funnel for clickers who didn’t install</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="ask">
-        <h2>The ask</h2>
-        <div class="full">
-          <p>
-            Raising a pre-seed / seed round to accelerate product development and scale distribution.
-            Looking for partners who understand consumer AI, habit loops, and premium iOS products.
-          </p>
-
-          <div class="cols" style="margin-top:14px">
-            <div class="col">
-              <div class="t">Use of funds</div>
-              <div class="d">
-                Product velocity, experimentation, and distribution. Hire selectively for growth + engineering.
-              </div>
-            </div>
-            <div class="col">
-              <div class="t">What we’re looking for</div>
-              <div class="d">
-                Warm introductions, strategic feedback, and investors aligned with long-term consumer value.
-              </div>
-            </div>
-            <div class="col">
-              <div class="t">Contact</div>
-              <div class="d">
-                Paul Crapatureanu<br />
-                <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a><br />
-                <a href="https://wealthboost.ai/" target="_blank" rel="noreferrer">wealthboost.ai</a>
+    <!-- 3) Market Opportunity -->
+    <section id="s3">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">2</div>
+              <div>
+                <h2 class="h">Market Opportunity</h2>
+                <p class="p">
+                  WealthBoost AI sits at the intersection of personal finance, self-improvement, and consumer AI.
+                  We are not a budgeting tool. We are building a new consumer category: daily structured wealth execution.
+                </p>
               </div>
             </div>
           </div>
 
-          <div class="hero-actions" style="margin-top:14px">
-            <a class="btn primary" href="mailto:YOUR_EMAIL_HERE?subject=WealthBoost%20AI%20-%20Intro">Email me</a>
-            <a class="btn" href="https://apps.apple.com/" target="_blank" rel="noreferrer">App Store link</a>
-            <a class="btn" href="https://wealthboost.ai/" target="_blank" rel="noreferrer">Product site</a>
+          <div class="metrics" style="margin-top:14px;">
+            <div class="metric">
+              <div class="k">Personal finance software market</div>
+              <div class="v">$4.2B</div>
+              <div class="s">Projected by 2032 (from $1.4B in 2022; 12.2% CAGR).</div>
+            </div>
+            <div class="metric">
+              <div class="k">Self-improvement market</div>
+              <div class="v">$67.2B</div>
+              <div class="s">Projected by 2030 (estimated ~$48.4B in 2024).</div>
+            </div>
+            <div class="metric">
+              <div class="k">AI in personal finance management</div>
+              <div class="v">$2.37B</div>
+              <div class="s">Projected by 2029 (from $1.48B in 2024).</div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <div class="footer">
-        <div>
-          © 2026 WealthBoost AI • Built for iPhone and iPad •
-          <a href="https://wealthboost.app/privacy_policy" target="_blank" rel="noreferrer">Privacy</a> •
-          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noreferrer">EULA</a>
+          <p class="p" style="margin-top:14px;">
+            No product currently owns daily structured wealth execution. WealthBoost AI is designed to become the default daily habit layer.
+          </p>
         </div>
       </div>
-    </main>
-  </body>
+    </section>
+
+    <!-- 4) The Solution -->
+    <section id="s4">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">3</div>
+              <div>
+                <h2 class="h">The Solution</h2>
+                <p class="p">
+                  WealthBoost AI turns “wealth-building” into a daily loop: one clear plan, daily actions, visible progress, and compounding momentum.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft">
+              <div class="in">
+                <h3 class="h" style="font-size:16px;">Daily execution layer</h3>
+                <ul class="list">
+                  <li class="li"><span class="tick"></span><span>Personalized daily missions (income, learning, mindset)</span></li>
+                  <li class="li"><span class="tick"></span><span>Interactive Daily Momentum (fast prompts + tiny wins)</span></li>
+                  <li class="li"><span class="tick"></span><span>Widgets that keep users anchored daily</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="card soft">
+              <div class="in">
+                <h3 class="h" style="font-size:16px;">Progress that feels real</h3>
+                <ul class="list">
+                  <li class="li"><span class="tick"></span><span>XP + rings that close through completion</span></li>
+                  <li class="li"><span class="tick"></span><span>Roadmaps and weekly insights that adapt over time</span></li>
+                  <li class="li"><span class="tick"></span><span>Designed to reduce overwhelm and increase consistency</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Product -->
+    <section id="s5">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">4</div>
+              <div>
+                <h2 class="h">Product</h2>
+                <p class="p">
+                  A premium iOS experience built for daily usage. Clean, calm design. Fast load times. No clutter.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="productShot">
+            <img src="Images%20for%20website/phoneimage1.png" alt="WealthBoost AI home view preview" />
+            <div class="caption">Home view: rings, daily actions, and quick actions in one place.</div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft">
+              <div class="in">
+                <h3 class="h" style="font-size:16px;">Core modules</h3>
+                <ul class="list">
+                  <li class="li"><span class="tick"></span><span>Daily Missions (5 per day) + XP</span></li>
+                  <li class="li"><span class="tick"></span><span>Lessons, quizzes, reflections (progress engine)</span></li>
+                  <li class="li"><span class="tick"></span><span>Side hustle ideas + monetization paths</span></li>
+                  <li class="li"><span class="tick"></span><span>Focused AI coaching (money & wealth only)</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="card soft">
+              <div class="in">
+                <h3 class="h" style="font-size:16px;">Daily habit anchors</h3>
+                <ul class="list">
+                  <li class="li"><span class="tick"></span><span>Daily Momentum (prompts + tiny wins wall)</span></li>
+                  <li class="li"><span class="tick"></span><span>Lock/home screen widget (daily money thought)</span></li>
+                  <li class="li"><span class="tick"></span><span>Progress rings + streaks for compounding behavior</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) Why Now -->
+    <section id="s6">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">5</div>
+              <div>
+                <h2 class="h">Why Now</h2>
+                <p class="p">
+                  AI made personalization cheap. Consumers are overwhelmed by content. The missing piece is a daily execution layer that feels calm and repeatable.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Shift #1: Content saturation</h3>
+              <p class="p">People know “what to do” but can’t execute consistently. They need structure, not more information.</p>
+            </div></div>
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Shift #2: AI becomes daily</h3>
+              <p class="p">Consumers already use AI weekly. WealthBoost AI is built to become a daily companion with real behavior change loops.</p>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7) Moat -->
+    <section id="s7">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">6</div>
+              <div>
+                <h2 class="h">Moat</h2>
+                <p class="p">
+                  The moat is not “chat”. It’s the execution system: onboarding → personalization → daily loops → progress signals → retention → compounding data.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Product moat</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Daily loop design (missions + momentum + progress rings)</span></li>
+                <li class="li"><span class="tick"></span><span>Focused coaching scope (wealth-only guidance)</span></li>
+                <li class="li"><span class="tick"></span><span>Premium UX built for repeated daily use</span></li>
+              </ul>
+            </div></div>
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Data moat</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Profiles + completion signals create personalization depth</span></li>
+                <li class="li"><span class="tick"></span><span>Behavioral patterns improve daily recommendations</span></li>
+                <li class="li"><span class="tick"></span><span>Longitudinal progress yields unique insights competitors don’t collect</span></li>
+              </ul>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7) Business Model -->
+    <section id="s8">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">7</div>
+              <div>
+                <h2 class="h">Business Model</h2>
+                <p class="p">
+                  Subscription-first consumer app. Built for retention through daily habit formation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Monetization</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Free trial (5 days) → subscription</span></li>
+                <li class="li"><span class="tick"></span><span>Monthly / Quarterly / Annual plans</span></li>
+                <li class="li"><span class="tick"></span><span>Clear value: daily structure + progress + coaching</span></li>
+              </ul>
+            </div></div>
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Long-term expansions</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Tiered plans (light / core / pro)</span></li>
+                <li class="li"><span class="tick"></span><span>B2B partnerships (employee wellbeing / benefits)</span></li>
+                <li class="li"><span class="tick"></span><span>Localized content + regional growth loops</span></li>
+              </ul>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 8) Pricing & Subscriptions -->
+    <section id="s9">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">8</div>
+              <div>
+                <h2 class="h">Pricing &amp; Subscriptions</h2>
+                <p class="p">
+                  Three premium plans with a 5-day free trial. Simple, consumer-friendly pricing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="metrics" style="margin-top:14px;">
+            <div class="metric">
+              <div class="k">Monthly</div>
+              <div class="v">$9.99</div>
+              <div class="s">per month</div>
+            </div>
+            <div class="metric">
+              <div class="k">Quarterly</div>
+              <div class="v">$21.99</div>
+              <div class="s">per 3 months</div>
+            </div>
+            <div class="metric">
+              <div class="k">Annual</div>
+              <div class="v">$69.99</div>
+              <div class="s">per year</div>
+            </div>
+          </div>
+
+          <div class="chart">
+            <div class="bar">
+              <div class="label">Monthly equivalent</div>
+              <div class="track"><div class="fill" style="width:100%"></div></div>
+              <div class="value">$9.99</div>
+            </div>
+            <div class="bar">
+              <div class="label">Quarterly equivalent</div>
+              <div class="track"><div class="fill" style="width:73%"></div></div>
+              <div class="value">$7.33</div>
+            </div>
+            <div class="bar">
+              <div class="label">Annual equivalent</div>
+              <div class="track"><div class="fill" style="width:58%"></div></div>
+              <div class="value">$5.83</div>
+            </div>
+          </div>
+          <div class="note">Monthly equivalents shown for comparison only.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9) Targets & Earnings -->
+    <section id="s10">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">9</div>
+              <div>
+                <h2 class="h">Targets &amp; Earnings</h2>
+                <p class="p">
+                  Optimistic but realistic 12-month targets. Assumes 5% paid conversion and blended ARPU of ~$7.50/mo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="metrics" style="margin-top:14px;">
+            <div class="metric">
+              <div class="k">12-Month MAU Target</div>
+              <div class="v">60k</div>
+              <div class="s">active users</div>
+            </div>
+            <div class="metric">
+              <div class="k">12-Month Target Paid Users @ 5%</div>
+              <div class="v">3,000</div>
+              <div class="s">subscribers</div>
+            </div>
+            <div class="metric">
+              <div class="k">12-Month Estimated MRR</div>
+              <div class="v">$22.5k</div>
+              <div class="s">gross subscription revenue</div>
+            </div>
+          </div>
+
+          <div class="table">
+            <div class="trow thead">
+              <div>Time</div>
+              <div>MAU target</div>
+              <div>Paid users (5%)</div>
+              <div>Est. MRR</div>
+            </div>
+            <div class="trow">
+              <div class="tcell">12 months</div>
+              <div class="tcell">60k</div>
+              <div class="tcell">3,000</div>
+              <div class="tcell">$22.5k</div>
+            </div>
+            <div class="trow">
+              <div class="tcell">24 months</div>
+              <div class="tcell">150k</div>
+              <div class="tcell">7,500</div>
+              <div class="tcell">$56.3k</div>
+            </div>
+            <div class="trow">
+              <div class="tcell">36 months</div>
+              <div class="tcell">300k</div>
+              <div class="tcell">15,000</div>
+              <div class="tcell">$112.5k</div>
+            </div>
+          </div>
+
+          <div class="mini-charts">
+            <div class="mini-chart">
+              <div class="title">Paid Users Growth</div>
+              <svg viewBox="0 0 300 160" role="img" aria-label="Paid users growth over 36 months">
+                <line x1="28" y1="16" x2="28" y2="132" stroke="rgba(255,255,255,.10)" />
+                <line x1="28" y1="132" x2="284" y2="132" stroke="rgba(255,255,255,.10)" />
+                <line x1="28" y1="102" x2="284" y2="102" stroke="rgba(255,255,255,.06)" />
+                <line x1="28" y1="72" x2="284" y2="72" stroke="rgba(255,255,255,.06)" />
+                <line x1="28" y1="42" x2="284" y2="42" stroke="rgba(255,255,255,.06)" />
+
+                <path d="M28 124 L128 108 L196 86 L284 50" fill="none" stroke="var(--green)" stroke-width="3" />
+                <circle cx="28" cy="124" r="3" fill="var(--green)" />
+                <circle cx="128" cy="108" r="3" fill="var(--green)" />
+                <circle cx="196" cy="86" r="3" fill="var(--green)" />
+                <circle cx="284" cy="50" r="3" fill="var(--green)" />
+
+                <text x="28" y="150" fill="rgba(255,255,255,.6)" font-size="10" text-anchor="middle">0</text>
+                <text x="128" y="150" fill="rgba(255,255,255,.6)" font-size="10" text-anchor="middle">12m</text>
+                <text x="196" y="150" fill="rgba(255,255,255,.6)" font-size="10" text-anchor="middle">24m</text>
+                <text x="284" y="150" fill="rgba(255,255,255,.6)" font-size="10" text-anchor="middle">36m</text>
+              </svg>
+            </div>
+            <div class="mini-chart">
+              <div class="title">MRR Growth (Gross)</div>
+              <svg viewBox="0 0 300 160" role="img" aria-label="MRR growth over 36 months">
+                <defs>
+                  <linearGradient id="mrrLineMini" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="rgba(124,77,255,0.9)"/>
+                    <stop offset="100%" stop-color="rgba(52,247,161,0.9)"/>
+                  </linearGradient>
+                </defs>
+                <line x1="28" y1="16" x2="28" y2="132" stroke="rgba(255,255,255,.10)" />
+                <line x1="28" y1="132" x2="284" y2="132" stroke="rgba(255,255,255,.10)" />
+                <line x1="28" y1="102" x2="284" y2="102" stroke="rgba(255,255,255,.06)" />
+                <line x1="28" y1="72" x2="284" y2="72" stroke="rgba(255,255,255,.06)" />
+                <line x1="28" y1="42" x2="284" y2="42" stroke="rgba(255,255,255,.06)" />
+
+                <path d="M28 126 L128 112 L196 86 L284 46" fill="none" stroke="var(--purple)" stroke-width="3" />
+                <circle cx="28" cy="126" r="3" fill="var(--purple)" />
+                <circle cx="128" cy="112" r="3" fill="var(--purple)" />
+                <circle cx="196" cy="86" r="3" fill="var(--purple)" />
+                <circle cx="284" cy="46" r="3" fill="var(--purple)" />
+
+                <text x="28" y="150" fill="rgba(255,255,255,.6)" font-size="10" text-anchor="middle">0</text>
+                <text x="128" y="150" fill="rgba(255,255,255,.6)" font-size="10" text-anchor="middle">12m</text>
+                <text x="196" y="150" fill="rgba(255,255,255,.6)" font-size="10" text-anchor="middle">24m</text>
+                <text x="284" y="150" fill="rgba(255,255,255,.6)" font-size="10" text-anchor="middle">36m</text>
+              </svg>
+            </div>
+          </div>
+          <div class="note">Estimates exclude platform fees and taxes.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10) Go-To-Market -->
+    <section id="s11">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">10</div>
+              <div>
+                <h2 class="h">Go-To-Market</h2>
+                <p class="p">
+                  Performance creative + App Store conversion systems + creator distribution. We win by making the promise instantly understandable: daily action and progress.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Paid acquisition</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>TikTok short creatives (6–10s) optimized for installs</span></li>
+                <li class="li"><span class="tick"></span><span>Retargeting: clicked → install intent creative</span></li>
+                <li class="li"><span class="tick"></span><span>Iterate hooks weekly; scale winners</span></li>
+              </ul>
+            </div></div>
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Organic distribution</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Indie press + App Spotlight features</span></li>
+                <li class="li"><span class="tick"></span><span>Creator collaborations + UGC templates</span></li>
+                <li class="li"><span class="tick"></span><span>SEO landing pages for intent keywords</span></li>
+              </ul>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 11) Competitive Landscape -->
+    <section id="s12">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">11</div>
+              <div>
+                <h2 class="h">Competitive Landscape</h2>
+                <p class="p">
+                  Existing tools focus on tracking, budgeting, or generic advice. WealthBoost AI focuses on daily execution + momentum.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">What others do</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Tracking and dashboards</span></li>
+                <li class="li"><span class="tick"></span><span>Budgeting workflows</span></li>
+                <li class="li"><span class="tick"></span><span>Content libraries and generic tips</span></li>
+              </ul>
+            </div></div>
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">What we own</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Daily structured missions and momentum loops</span></li>
+                <li class="li"><span class="tick"></span><span>Progress signals that drive retention</span></li>
+                <li class="li"><span class="tick"></span><span>Focused AI coaching with execution-first guidance</span></li>
+              </ul>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 12) Roadmap -->
+    <section id="s13">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">12</div>
+              <div>
+                <h2 class="h">Roadmap</h2>
+                <p class="p">
+                  Build the category-defining daily wealth companion: deeper personalization, stronger habit loops, broader distribution, and measurable outcomes.
+                  This is version 2.0, built just by me on a MacBook. Imagine how version 20.0 will look and feel.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Next 90 days</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Analytics dashboards (daily/weekly/monthly funnels)</span></li>
+                <li class="li"><span class="tick"></span><span>Retention upgrades (streak rewards, smart reminders)</span></li>
+                <li class="li"><span class="tick"></span><span>Creative scale system for paid growth</span></li>
+              </ul>
+            </div></div>
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Next 12 months</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Localized versions (multi-region growth)</span></li>
+                <li class="li"><span class="tick"></span><span>New “wealth skills” tracks (income, negotiation, offers)</span></li>
+                <li class="li"><span class="tick"></span><span>Partnership distribution and brand moat</span></li>
+              </ul>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 13) Team -->
+    <section id="s14">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">13</div>
+              <div>
+                <h2 class="h">Team</h2>
+                <p class="p">
+                  Built by an independent founder with a product-first mindset, shipping fast and iterating weekly.
+                  The plan is to assemble a small elite team around growth + product + data.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Founder</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Paul Crapatureanu — Founder & iOS developer</span></li>
+                <li class="li"><span class="tick"></span><span>Built the product end-to-end (design, backend, growth)</span></li>
+                <li class="li"><span class="tick"></span><span>Obsessed with premium UX and daily retention loops</span></li>
+              </ul>
+            </div></div>
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Hiring targets</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Growth lead (creative iteration + funnel optimization)</span></li>
+                <li class="li"><span class="tick"></span><span>Data/analytics (retention + personalization)</span></li>
+                <li class="li"><span class="tick"></span><span>Content/partnerships (distribution + credibility)</span></li>
+              </ul>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 14) Ask -->
+    <section id="s15">
+      <div class="card">
+        <div class="in">
+          <div class="numHead">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div class="num numGlow">14</div>
+              <div>
+                <h2 class="h">Investment Ask</h2>
+                <p class="p">
+                  Raising a pre-seed / seed round to accelerate product development and scale distribution.
+                  The goal is to build the category-defining daily wealth companion on iOS first, then expand.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:14px;">
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Use of funds</h3>
+              <ul class="list">
+                <li class="li"><span class="tick"></span><span>Scale acquisition (creative pipeline, testing, retargeting)</span></li>
+                <li class="li"><span class="tick"></span><span>Retention + personalization systems (analytics-driven)</span></li>
+                <li class="li"><span class="tick"></span><span>Small team build (growth + data + partnerships)</span></li>
+              </ul>
+            </div></div>
+            <div class="card soft"><div class="in">
+              <h3 class="h" style="font-size:16px;">Next step</h3>
+              <p class="p">
+                If this aligns with your thesis, I’d love to share the full deck, product walkthrough, and early performance metrics.
+              </p>
+              <div class="ctaRow" style="margin-top:12px;">
+                <a class="btn primary" href="mailto:devpaulcrp@gmail.com">Contact</a>
+                <a class="btn" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener">Test product</a>
+              </div>
+            </div></div>
+          </div>
+
+          <div class="hr"></div>
+          <div class="sources">
+            <div style="color: rgba(255,255,255,.70); font-weight:700; margin-bottom:6px;">Sources for market numbers</div>
+            <div>
+              Personal finance software market: <a href="https://www.alliedmarketresearch.com/personal-finance-software-market" target="_blank" rel="noopener">Allied Market Research</a>
+            </div>
+            <div>
+              Self-improvement / personal development market: <a href="https://www.grandviewresearch.com/industry-analysis/personal-development-market" target="_blank" rel="noopener">Grand View Research</a>
+            </div>
+            <div>
+              AI in personal finance management: <a href="https://www.kiplinger.com/personal-finance/how-you-can-use-artificial-intelligence-ai-to-improve-your-finances" target="_blank" rel="noopener">Kiplinger (citing Research and Markets)</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="hr"></div>
+      <div>
+        WealthBoost AI<br/>
+        Investor pitch page.
+        <div class="footer-links" style="margin-top:10px;">
+          <a href="https://wealthboost.ai/" target="_blank" rel="noopener">www.wealthboost.ai</a><br/>
+          <a href="https://www.paulcrp.com/" target="_blank" rel="noopener">www.paulcrp.com</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
 </html>
