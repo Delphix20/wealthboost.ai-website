@@ -1,1 +1,571 @@
+<!-- pitch.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>WealthBoost AI — Investor Pitch</title>
+    <meta
+      name="description"
+      content="WealthBoost AI investor pitch: a daily, behavioral, AI-guided wealth-building companion for iOS."
+    />
+    <style>
+      :root{
+        --bg0:#070711;
+        --bg1:#0b0b16;
+        --card:#101024cc;
+        --card2:#0f0f22b3;
+        --line:#ffffff14;
+        --text:#f4f6ff;
+        --muted:#c6c9d9;
+        --muted2:#a9aec4;
+        --green:#30e58f;
+        --purple:#8b5cf6;
+        --gold:#f5c26b;
+        --shadow: 0 18px 60px rgba(0,0,0,.45);
+        --radius:18px;
+        --radius2:24px;
+        --max:1080px;
+      }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        color:var(--text);
+        background:
+          radial-gradient(1200px 700px at 15% 10%, rgba(139,92,246,.25), transparent 55%),
+          radial-gradient(900px 600px at 80% 20%, rgba(48,229,143,.18), transparent 60%),
+          radial-gradient(1000px 700px at 50% 95%, rgba(245,194,107,.12), transparent 55%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+        overflow-x:hidden;
+      }
+      a{color:inherit;text-decoration:none}
+      .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+      .nav{
+        position:sticky; top:0; z-index:40;
+        backdrop-filter: blur(10px);
+        background: linear-gradient(180deg, rgba(7,7,17,.82), rgba(7,7,17,.55));
+        border-bottom:1px solid var(--line);
+      }
+      .nav-inner{
+        display:flex; align-items:center; justify-content:space-between;
+        padding:14px 0;
+        gap:14px;
+      }
+      .brand{
+        display:flex; align-items:center; gap:10px; min-width:220px;
+        font-weight:700; letter-spacing:.2px;
+      }
+      .dot{
+        width:10px; height:10px; border-radius:999px;
+        background: radial-gradient(circle at 30% 30%, var(--green), rgba(48,229,143,.25));
+        box-shadow: 0 0 0 6px rgba(48,229,143,.08);
+      }
+      .nav-links{
+        display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
+        color:var(--muted);
+        font-size:14px;
+      }
+      .nav-links a{padding:8px 10px; border-radius:12px}
+      .nav-links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+      .cta{
+        display:flex; gap:10px; align-items:center; justify-content:flex-end;
+        min-width:220px;
+      }
+      .btn{
+        display:inline-flex; align-items:center; justify-content:center;
+        padding:10px 14px;
+        border-radius:14px;
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.06);
+        color:var(--text);
+        font-weight:600;
+        font-size:14px;
+        transition: transform .12s ease, background .12s ease, border-color .12s ease;
+        box-shadow: 0 10px 40px rgba(0,0,0,.25);
+      }
+      .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16)}
+      .btn.primary{
+        border-color: rgba(48,229,143,.35);
+        background: linear-gradient(135deg, rgba(48,229,143,.22), rgba(139,92,246,.14));
+      }
+      .hero{
+        padding:56px 0 30px;
+      }
+      .hero-grid{
+        display:grid;
+        grid-template-columns: 1.2fr .8fr;
+        gap:18px;
+        align-items:stretch;
+      }
+      @media (max-width: 940px){
+        .hero-grid{grid-template-columns:1fr}
+        .brand,.cta{min-width:unset}
+      }
+      .card{
+        background: linear-gradient(180deg, var(--card), var(--card2));
+        border:1px solid var(--line);
+        border-radius: var(--radius2);
+        box-shadow: var(--shadow);
+      }
+      .hero-main{padding:26px}
+      .kicker{
+        display:inline-flex; align-items:center; gap:10px;
+        color:var(--muted);
+        font-size:13px;
+        padding:7px 10px;
+        border-radius:999px;
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.04);
+      }
+      .pill{
+        display:inline-flex; align-items:center;
+        padding:4px 10px;
+        border-radius:999px;
+        border:1px solid rgba(48,229,143,.22);
+        color:var(--green);
+        background: rgba(48,229,143,.08);
+        font-weight:700;
+        font-size:12px;
+      }
+      h1{
+        margin:14px 0 10px;
+        font-size:44px;
+        line-height:1.05;
+        letter-spacing:-.6px;
+      }
+      @media (max-width:520px){h1{font-size:36px}}
+      .lead{
+        margin:0 0 16px;
+        color:var(--muted);
+        font-size:16px;
+        line-height:1.6;
+        max-width:70ch;
+      }
+      .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+      .hero-side{padding:18px}
+      .stat-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+      }
+      .stat{
+        padding:14px;
+        border-radius: var(--radius);
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.03);
+      }
+      .stat .label{color:var(--muted2); font-size:12px}
+      .stat .value{font-size:18px; font-weight:800; margin-top:6px}
+      .mini{
+        margin-top:10px;
+        padding:14px;
+        border-radius: var(--radius);
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.03);
+        color:var(--muted);
+        line-height:1.55;
+        font-size:14px;
+      }
 
+      .section{padding:22px 0}
+      .section h2{
+        font-size:22px;
+        letter-spacing:-.2px;
+        margin:0 0 10px;
+      }
+      .section p{margin:0; color:var(--muted); line-height:1.65}
+      .grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+        margin-top:14px;
+      }
+      @media (max-width: 860px){.grid{grid-template-columns:1fr}}
+      .tile{
+        padding:18px;
+        border-radius: var(--radius2);
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.03);
+      }
+      .tile h3{margin:0 0 8px; font-size:16px}
+      .tile ul{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.7}
+      .tile li{margin:4px 0}
+      .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+      .tag{
+        font-size:12px;
+        color:var(--muted);
+        padding:6px 10px;
+        border-radius:999px;
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.03);
+      }
+      .tag b{color:var(--green); font-weight:800}
+      .full{
+        padding:18px;
+        border-radius: var(--radius2);
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.03);
+        margin-top:14px;
+      }
+      .cols{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+        gap:12px;
+        margin-top:12px;
+      }
+      @media (max-width: 940px){.cols{grid-template-columns:1fr}}
+      .col{
+        padding:14px;
+        border-radius: var(--radius);
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.03);
+      }
+      .col .t{font-weight:800; margin-bottom:6px}
+      .col .d{color:var(--muted); line-height:1.6; font-size:14px}
+
+      .footer{
+        padding:30px 0 50px;
+        border-top:1px solid var(--line);
+        margin-top:26px;
+        color:var(--muted);
+        font-size:13px;
+      }
+      .footer a{color:var(--text); opacity:.9}
+      .footer a:hover{opacity:1}
+      .small-note{color:var(--muted2); font-size:12px; margin-top:10px}
+      .accent{
+        color:var(--green);
+        font-weight:800;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="wrap">
+        <div class="nav-inner">
+          <div class="brand">
+            <span class="dot" aria-hidden="true"></span>
+            <span>WealthBoost AI</span>
+            <span class="pill">Investor Pitch</span>
+          </div>
+
+          <div class="nav-links">
+            <a href="#pitch">Pitch</a>
+            <a href="#problem">Problem</a>
+            <a href="#solution">Solution</a>
+            <a href="#product">Product</a>
+            <a href="#model">Business</a>
+            <a href="#go">Go-to-market</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#ask">Ask</a>
+          </div>
+
+          <div class="cta">
+            <a class="btn" href="https://wealthboost.ai/" target="_blank" rel="noreferrer">Main site</a>
+            <a class="btn primary" href="#ask">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="hero" id="pitch">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="card hero-main">
+            <div class="kicker">
+              <span class="pill">Elevator pitch</span>
+              <span>Daily, behavioral, AI-guided money momentum.</span>
+            </div>
+
+            <h1>
+              A personal wealth companion that turns
+              <span class="accent">intent</span> into daily <span class="accent">action</span>.
+            </h1>
+
+            <p class="lead">
+              WealthBoost AI helps people build stronger money habits through a focused daily system:
+              short missions, visible progress, and a practical coach that stays centered on money, earning,
+              saving, learning, and mindset. It feels like a calm daily ritual, not a stressful finance dashboard.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="https://apps.apple.com/" target="_blank" rel="noreferrer">App Store link</a>
+              <a class="btn" href="#product">What users get</a>
+              <a class="btn" href="#model">How it makes money</a>
+            </div>
+
+            <div class="small-note">
+              Note: This pitch page intentionally omits traction metrics for now.
+            </div>
+          </div>
+
+          <aside class="card hero-side">
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="label">Platform</div>
+                <div class="value">iOS</div>
+              </div>
+              <div class="stat">
+                <div class="label">Category</div>
+                <div class="value">Consumer AI</div>
+              </div>
+              <div class="stat">
+                <div class="label">Core loop</div>
+                <div class="value">Daily missions</div>
+              </div>
+              <div class="stat">
+                <div class="label">Business model</div>
+                <div class="value">Subscription</div>
+              </div>
+            </div>
+
+            <div class="mini">
+              <div style="font-weight:800; color:var(--text); margin-bottom:8px">Why now</div>
+              People want financial progress, but most apps overwhelm them.
+              WealthBoost AI simplifies money improvement into small daily wins that compound.
+            </div>
+
+            <div class="mini">
+              <div style="font-weight:800; color:var(--text); margin-bottom:8px">What we believe</div>
+              Consistency beats intensity. The product is designed to keep users moving daily with
+              clarity, momentum, and a premium calm UX.
+            </div>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="section" id="problem">
+        <h2>The problem</h2>
+        <div class="grid">
+          <div class="tile">
+            <h3>Most people feel overwhelmed</h3>
+            <p>
+              Finance apps often start with tracking, categories, and long-term planning.
+              For many users, that turns into guilt, avoidance, and churn.
+            </p>
+            <ul>
+              <li>Too many features before the first win</li>
+              <li>Advice that doesn’t fit the user’s life</li>
+              <li>Motivation spikes, then drop-off</li>
+            </ul>
+          </div>
+
+          <div class="tile">
+            <h3>Behavior change is the missing layer</h3>
+            <p>
+              People don’t need more information. They need a system that makes the next step obvious,
+              small, and repeatable.
+            </p>
+            <ul>
+              <li>Clear daily actions</li>
+              <li>Visible momentum</li>
+              <li>Personalized guidance without noise</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="solution">
+        <h2>The solution</h2>
+        <div class="full">
+          <p>
+            WealthBoost AI turns a user’s profile into a daily plan: missions across key money areas, progress
+            mechanics that reward consistency, and an AI coach that keeps the user focused on wealth-building.
+          </p>
+
+          <div class="tagrow">
+            <span class="tag"><b>Daily</b> missions</span>
+            <span class="tag"><b>Progress</b> rings + XP</span>
+            <span class="tag"><b>Focused</b> AI coaching</span>
+            <span class="tag"><b>Personalized</b> by profile</span>
+            <span class="tag"><b>Calm</b> premium UX</span>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="tile">
+            <h3>What makes it different</h3>
+            <ul>
+              <li>Designed as a daily ritual, not a budgeting spreadsheet</li>
+              <li>Small actions first, compounding systems over time</li>
+              <li>AI guidance stays on money and wealth topics</li>
+              <li>Progress feels visible without overwhelming charts</li>
+            </ul>
+          </div>
+          <div class="tile">
+            <h3>Outcome we optimize for</h3>
+            <ul>
+              <li>Users finish today’s tasks</li>
+              <li>Users return tomorrow</li>
+              <li>Users build confidence and momentum</li>
+              <li>Users translate learning into real-world action</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="product">
+        <h2>Product</h2>
+        <div class="grid">
+          <div class="tile">
+            <h3>The daily loop</h3>
+            <ul>
+              <li>Daily missions across income, learning, spending, mindset</li>
+              <li>Daily money thought widget (lock & home screen)</li>
+              <li>Progress tasks: lessons, quizzes, reflections</li>
+              <li>Weekly commitments and reflection loop</li>
+            </ul>
+          </div>
+          <div class="tile">
+            <h3>AI coach (money-first)</h3>
+            <ul>
+              <li>Guidance tailored to user goals and constraints</li>
+              <li>Practical, step-by-step suggestions</li>
+              <li>Stays focused on wealth-building topics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="full">
+          <h3 style="margin:0 0 10px; font-size:16px">Screenshots / visuals</h3>
+          <p>
+            Replace this placeholder block with your screenshot strip (same style as your main site).
+            Suggested: 3 phone mockups in a row, dark background, subtle glow, captions below.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="model">
+        <h2>Business model</h2>
+        <div class="cols">
+          <div class="col">
+            <div class="t">Subscription</div>
+            <div class="d">
+              Premium unlocks missions, coaching, progress features, and personalized ideas.
+              5-day free trial to reduce friction.
+            </div>
+          </div>
+          <div class="col">
+            <div class="t">Value proposition</div>
+            <div class="d">
+              A daily money companion that replaces overwhelm with clarity and consistent execution.
+              Built to feel premium and simple.
+            </div>
+          </div>
+          <div class="col">
+            <div class="t">Future expansion</div>
+            <div class="d">
+              Additional tiers, partner offers, localized markets, and new premium modules
+              built around daily behavior loops.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="go">
+        <h2>Go-to-market</h2>
+        <div class="grid">
+          <div class="tile">
+            <h3>Short-form performance creative</h3>
+            <p>
+              Fast, high-retention ads focused on “clarity over complexity,” showing real UI and the daily loop.
+            </p>
+            <ul>
+              <li>Hook in first 0.5–1.0s</li>
+              <li>Show daily mission screen</li>
+              <li>Clear App Store CTA</li>
+            </ul>
+          </div>
+
+          <div class="tile">
+            <h3>Indie + product-led distribution</h3>
+            <p>
+              Focus on trusted tech channels and communities that amplify polished indie iOS products.
+            </p>
+            <ul>
+              <li>Press outreach (indie app columns)</li>
+              <li>Product directories</li>
+              <li>Founder-led X/TikTok content</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="roadmap">
+        <h2>Roadmap (next 90 days)</h2>
+        <div class="grid">
+          <div class="tile">
+            <h3>Product</h3>
+            <ul>
+              <li>Improve onboarding completion and activation</li>
+              <li>Expand Daily Momentum and “tiny wins” modules</li>
+              <li>Refine personalization and content variety</li>
+              <li>Add analytics dashboard for funnel insights</li>
+            </ul>
+          </div>
+          <div class="tile">
+            <h3>Growth</h3>
+            <ul>
+              <li>Iterate US creatives and landing flow for conversion lift</li>
+              <li>Test creator partnerships and review-style UGC</li>
+              <li>ASO improvements: screenshots, promo text, keywords</li>
+              <li>Retargeting funnel for clickers who didn’t install</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ask">
+        <h2>The ask</h2>
+        <div class="full">
+          <p>
+            Raising a pre-seed / seed round to accelerate product development and scale distribution.
+            Looking for partners who understand consumer AI, habit loops, and premium iOS products.
+          </p>
+
+          <div class="cols" style="margin-top:14px">
+            <div class="col">
+              <div class="t">Use of funds</div>
+              <div class="d">
+                Product velocity, experimentation, and distribution. Hire selectively for growth + engineering.
+              </div>
+            </div>
+            <div class="col">
+              <div class="t">What we’re looking for</div>
+              <div class="d">
+                Warm introductions, strategic feedback, and investors aligned with long-term consumer value.
+              </div>
+            </div>
+            <div class="col">
+              <div class="t">Contact</div>
+              <div class="d">
+                Paul Crapatureanu<br />
+                <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a><br />
+                <a href="https://wealthboost.ai/" target="_blank" rel="noreferrer">wealthboost.ai</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-top:14px">
+            <a class="btn primary" href="mailto:YOUR_EMAIL_HERE?subject=WealthBoost%20AI%20-%20Intro">Email me</a>
+            <a class="btn" href="https://apps.apple.com/" target="_blank" rel="noreferrer">App Store link</a>
+            <a class="btn" href="https://wealthboost.ai/" target="_blank" rel="noreferrer">Product site</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        <div>
+          © 2026 WealthBoost AI • Built for iPhone and iPad •
+          <a href="https://wealthboost.app/privacy_policy" target="_blank" rel="noreferrer">Privacy</a> •
+          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noreferrer">EULA</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
